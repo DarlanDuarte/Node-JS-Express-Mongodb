@@ -1,0 +1,16 @@
+{
+  "name": "crud-completo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js.js",
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sucrase": "^3.32.0"
+  }
+}
