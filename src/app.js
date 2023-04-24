@@ -1,25 +1,20 @@
-import express from "express"
-import routes from './routes/index'
-
-
+import express from 'express';
+import routes from './routes/routes';
 
 class App {
-    constructor(){
-        this.app = express()
-        this.middlewares()
-        this.routes()
-    }
+  constructor() {
+    this.app = express();
+    this.middlewares();
+    this.routes();
+  }
 
+  middlewares() {
+    this.app.use(express.json());
+  }
 
-    middlewares(){
-        this.app.use(express.json())
-
-    }
-
-    routes(){
-        this.app.use(routes)
-    }
+  routes() {
+    this.app.use(routes);
+  }
 }
 
-
-export default new App().app
+export default new App().app;

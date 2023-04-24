@@ -1,5 +1,5 @@
-import app from './app'
+import app from './app';
 
-app.listen(8080, (req, res) =>{
-    console.log(`Server Running Success!`)
-})
+app.listen(8080, () => {
+  console.log('Server Running Success!');
+});
