@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb';
 import connection from '../database/Connection';
 
 class Users {
@@ -16,17 +17,25 @@ class Users {
     return { email, _id };
   }
 
-  async existsUsers({ email, uuid }) {
+  async existsUsers({ email, id }) {
     const db = await connection();
     let user = null;
 
-    if (uuid) {
-      user = await db.collection('users').findOne({ uuid });
+    if (id) {
+      user = await db.collection('users').findOne({ _id: new ObjectId(id) });
     } else {
       user = await db.collection('users').findOne({ email });
     }
 
     return user;
+  }
+
+  async deletando({ id }) {
+    const db = await connection();
+
+    await db.collection('users').deleteOne({ _id: new ObjectId(id) });
+
+    return { id };
   }
 }
 

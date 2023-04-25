@@ -17,6 +17,16 @@ class ServicesUsers {
 
     return user;
   }
+
+  async delete(id) {
+    const user = await Users.existsUsers({ id });
+
+    if (!user) return { msg: `Usuário não existe` };
+
+    const result = await Users.deletando({ id });
+
+    return result;
+  }
 }
 
 export default new ServicesUsers();
