@@ -27,6 +27,16 @@ class ServicesUsers {
 
     return result;
   }
+
+  async updating({ id, email, password }) {
+    const user = await Users.existsUsers({ id });
+
+    if (!user) return { msg: `Usuário não existe` };
+
+    const result = await Users.update({ id, email, password });
+
+    return result;
+  }
 }
 
 export default new ServicesUsers();

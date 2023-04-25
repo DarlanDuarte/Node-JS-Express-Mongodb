@@ -37,6 +37,14 @@ class Users {
 
     return { id };
   }
+
+  async update({ id, email, password }) {
+    const db = await connection();
+
+    await db.collection('users').updateOne({ _id: new ObjectId(id) }, { $set: { email, password } });
+    console.log(id, email);
+    return { id, email };
+  }
 }
 
 export default new Users();
